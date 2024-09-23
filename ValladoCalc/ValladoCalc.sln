@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PresentationLayer", "PresentationLayer", "{86BFD793-A838-4FAB-8BE3-7AB541A77F8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{CA9E6B34-CBBA-47FF-BCF8-B01556AB7D4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{EDD29AE5-7F09-4361-8B17-D6A9F47A8C8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValladoCalc.BusinessLogic.Services", "BusinessLogic\ValladoCalc.BusinessLogic.Services\ValladoCalc.BusinessLogic.Services.csproj", "{2AF878C9-26D4-4B3A-A40A-B872D177EDFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValladoCalc.PresentationLayer.API", "PresentationLayer\ValladoCalc.PresentationLayer.API\ValladoCalc.PresentationLayer.API.csproj", "{753F8279-D351-4172-87B4-C01FC834369E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValladoCalc.PresentationLayer.Razor", "PresentationLayer\ValladoCalc.PresentationLayer.Razor\ValladoCalc.PresentationLayer.Razor.csproj", "{98512A98-74FD-4C29-9B0E-1059C31F764A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValladoCalc.BusinessLogic.Calculators", "BusinessLogic\ValladoCalc.BusinessLogic.Calculators\ValladoCalc.BusinessLogic.Calculators.csproj", "{544F4A6F-2042-4BE0-8BF4-A6452ED2C645}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValladoCalc.BusinessLogic.Models", "BusinessLogic\ValladoCalc.BusinessLogic.Models\ValladoCalc.BusinessLogic.Models.csproj", "{D16A14F7-E01C-44E3-BD9A-454C851DAE78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AF878C9-26D4-4B3A-A40A-B872D177EDFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AF878C9-26D4-4B3A-A40A-B872D177EDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AF878C9-26D4-4B3A-A40A-B872D177EDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AF878C9-26D4-4B3A-A40A-B872D177EDFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{753F8279-D351-4172-87B4-C01FC834369E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{753F8279-D351-4172-87B4-C01FC834369E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{753F8279-D351-4172-87B4-C01FC834369E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{753F8279-D351-4172-87B4-C01FC834369E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98512A98-74FD-4C29-9B0E-1059C31F764A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98512A98-74FD-4C29-9B0E-1059C31F764A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98512A98-74FD-4C29-9B0E-1059C31F764A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98512A98-74FD-4C29-9B0E-1059C31F764A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{544F4A6F-2042-4BE0-8BF4-A6452ED2C645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{544F4A6F-2042-4BE0-8BF4-A6452ED2C645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{544F4A6F-2042-4BE0-8BF4-A6452ED2C645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{544F4A6F-2042-4BE0-8BF4-A6452ED2C645}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D16A14F7-E01C-44E3-BD9A-454C851DAE78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D16A14F7-E01C-44E3-BD9A-454C851DAE78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D16A14F7-E01C-44E3-BD9A-454C851DAE78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D16A14F7-E01C-44E3-BD9A-454C851DAE78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2AF878C9-26D4-4B3A-A40A-B872D177EDFC} = {CA9E6B34-CBBA-47FF-BCF8-B01556AB7D4F}
+		{753F8279-D351-4172-87B4-C01FC834369E} = {86BFD793-A838-4FAB-8BE3-7AB541A77F8D}
+		{98512A98-74FD-4C29-9B0E-1059C31F764A} = {86BFD793-A838-4FAB-8BE3-7AB541A77F8D}
+		{544F4A6F-2042-4BE0-8BF4-A6452ED2C645} = {CA9E6B34-CBBA-47FF-BCF8-B01556AB7D4F}
+		{D16A14F7-E01C-44E3-BD9A-454C851DAE78} = {CA9E6B34-CBBA-47FF-BCF8-B01556AB7D4F}
+	EndGlobalSection
+EndGlobal
