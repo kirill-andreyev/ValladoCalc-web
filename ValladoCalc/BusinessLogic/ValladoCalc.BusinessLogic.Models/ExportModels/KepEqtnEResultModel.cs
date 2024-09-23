@@ -1,6 +1,6 @@
 ﻿namespace ValladoCalc.BusinessLogic.Models.ExportModels
 {
-    public class KepEqtnEModel
+    public class KepEqtnEResultModel
     {
         public decimal EccentricAnomaly { get; set; }
     }

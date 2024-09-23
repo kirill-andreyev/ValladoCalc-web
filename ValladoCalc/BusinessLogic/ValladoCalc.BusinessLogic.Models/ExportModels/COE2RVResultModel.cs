@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ValladoCalc.BusinessLogic.Models.ExportModels
 {
-    public class COE2RVModel
+    public class COE2RVResultModel
     {
-        public COE2RVModel()
+        public COE2RVResultModel()
         {
             RadiusVector = new decimal[3];
             SpeedVector = new decimal[3];
