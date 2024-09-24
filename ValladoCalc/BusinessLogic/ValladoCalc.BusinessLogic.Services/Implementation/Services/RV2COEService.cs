@@ -1,25 +1,26 @@
 using ValladoCalc.BusinessLogic.Models.ExportModels;
 using ValladoCalc.BusinessLogic.Models.ImportModels;
+using ValladoCalc.BusinessLogic.Services.Interfaces.Services;
 
-namespace ValladoCalc.BusinessLogic.Calculators
+namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
 {
-    public static class RV2COE
+    public class RV2COEService : IRV2COEService
     {
-        public static RV2COEResultModel Calculate(RV2COEModel data)
+        public async Task<RV2COEResultModel> CalculateOrbitalParameters(RV2COEModel data)
         {
             decimal magnitudeOfRaduis = (decimal)Math.Sqrt((double)(data.RadiusVector[0] * data.RadiusVector[0]) +
                 (double)(data.RadiusVector[1] * data.RadiusVector[1]) +
                 (double)(data.RadiusVector[2] * data.RadiusVector[2]));
 
-            decimal magnituteOfSpeed = (decimal)Math.Sqrt((double)(data.SpeedVector[0] * data.SpeedVector[0]) +
-                (double)(data.SpeedVector[1] * data.SpeedVector[1]) + 
-                (double)(data.SpeedVector[2] * data.SpeedVector[2]));
+            decimal magnituteOfSpeed = (decimal)Math.Sqrt((double)(data.VelocityVector[0] * data.VelocityVector[0]) +
+                (double)(data.VelocityVector[1] * data.VelocityVector[1]) + 
+                (double)(data.VelocityVector[2] * data.VelocityVector[2]));
 
             decimal[] angularMomentum =
             [
-                data.RadiusVector[1] * data.SpeedVector[2] - data.RadiusVector[2] * data.SpeedVector[1],
-                -(data.RadiusVector[0] * data.SpeedVector[2] - data.RadiusVector[2] * data.SpeedVector[0]),
-                data.RadiusVector[0] * data.SpeedVector[1] - data.RadiusVector[1] * data.SpeedVector[0],
+                data.RadiusVector[1] * data.VelocityVector[2] - data.RadiusVector[2] * data.VelocityVector[1],
+                -(data.RadiusVector[0] * data.VelocityVector[2] - data.RadiusVector[2] * data.VelocityVector[0]),
+                data.RadiusVector[0] * data.VelocityVector[1] - data.RadiusVector[1] * data.VelocityVector[0],
             ];
 
             decimal magnitudeOfAngularMomentum = (decimal)Math.Sqrt((double)(angularMomentum[0] * angularMomentum[0]) +
@@ -42,12 +43,12 @@ namespace ValladoCalc.BusinessLogic.Calculators
                 eccentricityVectorPart * data.RadiusVector[1],
                 eccentricityVectorPart * data.RadiusVector[2],
             ];
-            decimal eccentricityVectorPart2 = data.RadiusVector[0] * data.SpeedVector[0] + data.RadiusVector[1] * data.SpeedVector[1] + data.RadiusVector[2] * data.SpeedVector[2];
+            decimal eccentricityVectorPart2 = data.RadiusVector[0] * data.VelocityVector[0] + data.RadiusVector[1] * data.VelocityVector[1] + data.RadiusVector[2] * data.VelocityVector[2];
             decimal[] eccentricityVectorPart3 =
             [
-                eccentricityVectorPart2 * data.SpeedVector[0],
-                eccentricityVectorPart2 * data.SpeedVector[1],
-                eccentricityVectorPart2 * data.SpeedVector[2],
+                eccentricityVectorPart2 * data.VelocityVector[0],
+                eccentricityVectorPart2 * data.VelocityVector[1],
+                eccentricityVectorPart2 * data.VelocityVector[2],
             ];
             decimal[] eccentricityVectorPart4 = 
             [
@@ -123,7 +124,7 @@ namespace ValladoCalc.BusinessLogic.Calculators
                 result.ArgumentOfPerigee = (decimal)Math.Acos((double)cosLongitudeOfPerigee);
             }
 
-            if (data.SpeedVector[0] * data.RadiusVector[0] + data.SpeedVector[1] * data.RadiusVector[1] + data.SpeedVector[2] * data.RadiusVector[2] < 0)
+            if (data.VelocityVector[0] * data.RadiusVector[0] + data.VelocityVector[1] * data.RadiusVector[1] + data.VelocityVector[2] * data.RadiusVector[2] < 0)
             {
                 result.TrueAnomaly = 2m * (decimal)Math.PI - (decimal)Math.Acos((double)cosTrueAnomaly);
             }

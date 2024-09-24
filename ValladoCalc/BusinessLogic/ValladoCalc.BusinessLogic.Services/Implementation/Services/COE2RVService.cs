@@ -1,11 +1,12 @@
 using ValladoCalc.BusinessLogic.Models.ExportModels;
 using ValladoCalc.BusinessLogic.Models.ImportModels;
+using ValladoCalc.BusinessLogic.Services.Interfaces.Services;
 
-namespace ValladoCalc.BusinessLogic.Calculators
+namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
 {
-    public static class COE2RV
+    public class COE2RVService : ICOE2RVService
     {
-        public static COE2RVResultModel Calculate(COE2RVModel data)
+        public async Task<COE2RVResultModel> CalculateVectors(COE2RVModel data)
         {
             if(data.ArgumentOfPerigee == 0 && data.AscendingNode == 0)
             {
@@ -29,7 +30,7 @@ namespace ValladoCalc.BusinessLogic.Calculators
                 0m
             ];
 
-            result.SpeedVector =
+            result.VelocityVector =
            [
                 - (decimal)Math.Sqrt((double)(data.StandardGravitationalParameter / data.SemiParameter)) * (decimal)Math.Sin((double)data.TrueAnomaly),
                 (decimal)Math.Sqrt((double)(data.StandardGravitationalParameter / data.SemiParameter)) * (data.Eccentricity + (decimal)Math.Cos((double)data.TrueAnomaly)),
@@ -62,11 +63,11 @@ namespace ValladoCalc.BusinessLogic.Calculators
                 transformationMatrix[2,0] * result.RadiusVector[0] + transformationMatrix[2,1] * result.RadiusVector[1],
             ];
 
-            result.SpeedVector =
+            result.VelocityVector =
             [
-                transformationMatrix[0,0] * result.SpeedVector[0] + transformationMatrix[0,1] * result.SpeedVector[1],
-                transformationMatrix[1,0] * result.SpeedVector[0] + transformationMatrix[1,1] * result.SpeedVector[1],
-                transformationMatrix[2,0] * result.SpeedVector[0] + transformationMatrix[2,1] * result.SpeedVector[1],
+                transformationMatrix[0,0] * result.VelocityVector[0] + transformationMatrix[0,1] * result.VelocityVector[1],
+                transformationMatrix[1,0] * result.VelocityVector[0] + transformationMatrix[1,1] * result.VelocityVector[1],
+                transformationMatrix[2,0] * result.VelocityVector[0] + transformationMatrix[2,1] * result.VelocityVector[1],
             ];
 
             return result;

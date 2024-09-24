@@ -1,12 +1,13 @@
 using ValladoCalc.BusinessLogic.Models;
 using ValladoCalc.BusinessLogic.Models.ExportModels;
 using ValladoCalc.BusinessLogic.Models.ImportModels;
+using ValladoCalc.BusinessLogic.Services.Interfaces.Services;
 
-namespace ValladoCalc.BusinessLogic.Calculators
+namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
 {
-    public static class KepEqtnP
+    public class KepEqtnPService : IKepEqtnPService
     {
-        public static KepEqtnPResultModel Calculate(KepEqtnPModel data)
+        public async Task<KepEqtnPResultModel> CalculateParabolicAnomaly(KepEqtnPModel data)
         {
             if (data.TimeDimension == TimeDimension.Hours)
             {

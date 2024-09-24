@@ -1,11 +1,15 @@
 using ValladoCalc.PresentationLayer.API.Middleware;
+using ValladoCalc.BusinessLogic.Services;
+using ValladoCalc.PresentationLayer.API.Modules;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwagger();
+builder.Services.AddBusinessLogic();
 
 var app = builder.Build();
 
@@ -18,5 +22,5 @@ if (app.Environment.IsDevelopment())
 
 app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 app.UseHttpsRedirection();
-
+app.MapControllers();
 app.Run();

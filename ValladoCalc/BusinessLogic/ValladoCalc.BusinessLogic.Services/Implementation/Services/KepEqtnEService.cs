@@ -1,12 +1,13 @@
 using ValladoCalc.BusinessLogic.Models;
 using ValladoCalc.BusinessLogic.Models.ExportModels;
 using ValladoCalc.BusinessLogic.Models.ImportModels;
+using ValladoCalc.BusinessLogic.Services.Interfaces.Services;
 
-namespace ValladoCalc.BusinessLogic.Calculators
+namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
 {
-    public static class KepEqtnE
+    public class KepEqtnEService : IKepEqtnEService
     {
-        public static KepEqtnEResultModel Calculate(KepEqtnEModel data)
+        public async Task<KepEqtnEResultModel> CalculateEccenticAnomaly(KepEqtnEModel data)
         {
             decimal eccentricAnomaly;
             decimal eccentricAnomalyNext;

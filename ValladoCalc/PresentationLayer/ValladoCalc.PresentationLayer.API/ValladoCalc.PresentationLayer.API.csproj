@@ -11,4 +11,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLogic\ValladoCalc.BusinessLogic.Services\ValladoCalc.BusinessLogic.Services.csproj" />
+    <ProjectReference Include="..\..\BusinessLogic\ValladoCalc.BusinessLogic.Models\ValladoCalc.BusinessLogic.Models.csproj" />
+  </ItemGroup>
+
 </Project>
