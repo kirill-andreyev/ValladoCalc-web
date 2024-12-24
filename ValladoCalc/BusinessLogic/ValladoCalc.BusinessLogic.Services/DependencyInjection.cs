@@ -15,6 +15,7 @@ namespace ValladoCalc.BusinessLogic.Services
             services.AddTransient<IKepEqtnEService, KepEqtnEService>();
             services.AddTransient<IKepEqtnPService, KepEqtnPService>();
             services.AddTransient<IRV2COEService, RV2COEService>();
+            services.AddTransient<IDateTimeService, DateTimeService>();
 
             return services;
         }
