@@ -8,73 +8,73 @@ namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
     {
         public async Task<RV2COEResultModel> CalculateOrbitalParameters(RV2COEModel data)
         {
-            decimal magnitudeOfRaduis = (decimal)Math.Sqrt((double)(data.RadiusVector[0] * data.RadiusVector[0]) +
-                (double)(data.RadiusVector[1] * data.RadiusVector[1]) +
-                (double)(data.RadiusVector[2] * data.RadiusVector[2]));
+            double magnitudeOfRaduis = Math.Sqrt(data.RadiusVector[0] * data.RadiusVector[0] +
+                                                 data.RadiusVector[1] * data.RadiusVector[1] +
+                                                 data.RadiusVector[2] * data.RadiusVector[2]);
 
-            decimal magnituteOfSpeed = (decimal)Math.Sqrt((double)(data.VelocityVector[0] * data.VelocityVector[0]) +
-                (double)(data.VelocityVector[1] * data.VelocityVector[1]) + 
-                (double)(data.VelocityVector[2] * data.VelocityVector[2]));
+            double magnituteOfSpeed = Math.Sqrt(data.VelocityVector[0] * data.VelocityVector[0] +
+                                                data.VelocityVector[1] * data.VelocityVector[1] + 
+                                                data.VelocityVector[2] * data.VelocityVector[2]);
 
-            decimal[] angularMomentum =
+            double[] angularMomentum =
             [
                 data.RadiusVector[1] * data.VelocityVector[2] - data.RadiusVector[2] * data.VelocityVector[1],
                 -(data.RadiusVector[0] * data.VelocityVector[2] - data.RadiusVector[2] * data.VelocityVector[0]),
                 data.RadiusVector[0] * data.VelocityVector[1] - data.RadiusVector[1] * data.VelocityVector[0],
             ];
 
-            decimal magnitudeOfAngularMomentum = (decimal)Math.Sqrt((double)(angularMomentum[0] * angularMomentum[0]) +
-                (double)(angularMomentum[1] * angularMomentum[1]) +
-                (double)(angularMomentum[2] * angularMomentum[2]));
+            double magnitudeOfAngularMomentum = Math.Sqrt(angularMomentum[0] * angularMomentum[0] +
+                                                          angularMomentum[1] * angularMomentum[1] +
+                                                          angularMomentum[2] * angularMomentum[2]);
 
-            decimal[] nodeVector =
+            double[] nodeVector =
             [
                 -angularMomentum[1],
                 angularMomentum[0],
             ];
 
-            decimal magnitudeOfNodeVector = (decimal)Math.Sqrt((double)(nodeVector[0] * nodeVector[0]) +
-                (double)(nodeVector[1] * nodeVector[1]));
+            double magnitudeOfNodeVector = Math.Sqrt(nodeVector[0] * nodeVector[0] +
+                                                     nodeVector[1] * nodeVector[1]);
 
-            decimal eccentricityVectorPart = (magnituteOfSpeed * magnituteOfSpeed - data.StandardGravitationalParameter / magnitudeOfRaduis);
-            decimal[] eccentricVectorPart1 =
+            double eccentricityVectorPart = (magnituteOfSpeed * magnituteOfSpeed - data.StandardGravitationalParameter / magnitudeOfRaduis);
+            double[] eccentricVectorPart1 =
             [
                 eccentricityVectorPart * data.RadiusVector[0],
                 eccentricityVectorPart * data.RadiusVector[1],
                 eccentricityVectorPart * data.RadiusVector[2],
             ];
-            decimal eccentricityVectorPart2 = data.RadiusVector[0] * data.VelocityVector[0] + data.RadiusVector[1] * data.VelocityVector[1] + data.RadiusVector[2] * data.VelocityVector[2];
-            decimal[] eccentricityVectorPart3 =
+            double eccentricityVectorPart2 = data.RadiusVector[0] * data.VelocityVector[0] + data.RadiusVector[1] * data.VelocityVector[1] + data.RadiusVector[2] * data.VelocityVector[2];
+            double[] eccentricityVectorPart3 =
             [
                 eccentricityVectorPart2 * data.VelocityVector[0],
                 eccentricityVectorPart2 * data.VelocityVector[1],
                 eccentricityVectorPart2 * data.VelocityVector[2],
             ];
-            decimal[] eccentricityVectorPart4 = 
+            double[] eccentricityVectorPart4 = 
             [
                 eccentricVectorPart1[0] - eccentricityVectorPart3[0],
                 eccentricVectorPart1[1] - eccentricityVectorPart3[1],
                 eccentricVectorPart1[2] - eccentricityVectorPart3[2],
             ];
 
-            decimal[] eccentricityVector = 
+            double[] eccentricityVector = 
             [
                 1 / data.StandardGravitationalParameter * eccentricityVectorPart4[0],
                 1 / data.StandardGravitationalParameter * eccentricityVectorPart4[1],
                 1 / data.StandardGravitationalParameter * eccentricityVectorPart4[2],
             ];
 
-            decimal eccentricity = (decimal)Math.Sqrt((double)(eccentricityVector[0] * eccentricityVector[0]) +
-                (double)(eccentricityVector[1] * eccentricityVector[1]) +
-                (double)(eccentricityVector[2] * eccentricityVector[2]));
+            double eccentricity = Math.Sqrt(eccentricityVector[0] * eccentricityVector[0] +
+                                            eccentricityVector[1] * eccentricityVector[1] +
+                                            eccentricityVector[2] * eccentricityVector[2]);
 
-            decimal specificEnegry = ((magnituteOfSpeed * magnituteOfSpeed) / 2) - (data.StandardGravitationalParameter / magnitudeOfRaduis);
+            double specificEnegry = ((magnituteOfSpeed * magnituteOfSpeed) / 2) - (data.StandardGravitationalParameter / magnitudeOfRaduis);
 
-            decimal semiMajorAxis, semiParameter;
+            double semiMajorAxis, semiParameter;
 
             if(eccentricity == 1)
             {
-                semiMajorAxis = decimal.MaxValue;
+                semiMajorAxis = double.MaxValue;
                 semiParameter = (magnitudeOfAngularMomentum * magnitudeOfAngularMomentum) / data.StandardGravitationalParameter;
             }
             else
@@ -83,20 +83,20 @@ namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
                 semiParameter = semiMajorAxis * (1 - eccentricity * eccentricity);
             }
 
-            decimal cosInclination = angularMomentum[2] / magnitudeOfAngularMomentum;
-            decimal cosAscendingNode = nodeVector[0] / magnitudeOfNodeVector;
-            decimal cosLongitudeOfPerigee = (nodeVector[0] * eccentricityVector[0] + 
+            double cosInclination = angularMomentum[2] / magnitudeOfAngularMomentum;
+            double cosAscendingNode = nodeVector[0] / magnitudeOfNodeVector;
+            double cosLongitudeOfPerigee = (nodeVector[0] * eccentricityVector[0] + 
                 nodeVector[1] * eccentricityVector[1]) /
                 (magnitudeOfNodeVector * eccentricity);
-            decimal cosTrueAnomaly = (eccentricityVector[0] * data.RadiusVector[0] + 
+            double cosTrueAnomaly = (eccentricityVector[0] * data.RadiusVector[0] + 
                 eccentricityVector[1] * data.RadiusVector[1] + 
                 eccentricityVector[2] * data.RadiusVector[2]) / 
                 (eccentricity * magnitudeOfRaduis);
-            decimal cosTrueLongitudeOfPerigee = eccentricityVector[0] / eccentricity;
-            decimal cosArgumentOfLatitude = (nodeVector[0] * data.RadiusVector[0] + 
+            double cosTrueLongitudeOfPerigee = eccentricityVector[0] / eccentricity;
+            double cosArgumentOfLatitude = (nodeVector[0] * data.RadiusVector[0] + 
                 nodeVector[1] * data.RadiusVector[1]) / 
                 (magnitudeOfNodeVector * magnitudeOfRaduis);
-            decimal cosTrueLongitude = data.RadiusVector[0] / magnitudeOfRaduis;
+            double cosTrueLongitude = data.RadiusVector[0] / magnitudeOfRaduis;
 
             RV2COEResultModel result = new RV2COEResultModel();
 
@@ -104,62 +104,62 @@ namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
             result.SemiParameter = semiParameter;
             result.Eccentricity = eccentricity;
 
-            result.Inclination = (decimal)Math.Acos((double)cosInclination);
+            result.Inclination = Math.Acos(cosInclination);
 
             if (nodeVector[1] < 0)
             {
-                result.AscendingNode = 2m * (decimal)Math.PI - (decimal)Math.Acos((double)cosAscendingNode);
+                result.AscendingNode = 2 * Math.PI - Math.Acos(cosAscendingNode);
             }
             else
             {
-                result.AscendingNode = (decimal)Math.Acos((double)cosAscendingNode);
+                result.AscendingNode = Math.Acos(cosAscendingNode);
             }
 
             if (eccentricityVector[2] < 0)
             {
-                result.ArgumentOfPerigee = 2m * (decimal)Math.PI - (decimal)Math.Acos((double)cosLongitudeOfPerigee);
+                result.ArgumentOfPerigee = 2 * Math.PI - Math.Acos(cosLongitudeOfPerigee);
             }
             else
             {
-                result.ArgumentOfPerigee = (decimal)Math.Acos((double)cosLongitudeOfPerigee);
+                result.ArgumentOfPerigee = Math.Acos(cosLongitudeOfPerigee);
             }
 
             if (data.VelocityVector[0] * data.RadiusVector[0] + data.VelocityVector[1] * data.RadiusVector[1] + data.VelocityVector[2] * data.RadiusVector[2] < 0)
             {
-                result.TrueAnomaly = 2m * (decimal)Math.PI - (decimal)Math.Acos((double)cosTrueAnomaly);
+                result.TrueAnomaly = 2 * Math.PI - Math.Acos(cosTrueAnomaly);
             }
             else
             {
-                result.TrueAnomaly = (decimal)Math.Acos((double)cosTrueAnomaly);
+                result.TrueAnomaly = Math.Acos(cosTrueAnomaly);
             }
 
             result.LongituteOfPerigee = result.AscendingNode + result.ArgumentOfPerigee;
 
             if (eccentricityVector[1] < 0)
             {
-                result.TrueLongitudeOfPerigee = 2m * (decimal)Math.PI - (decimal)Math.Acos((double)cosTrueLongitudeOfPerigee);
+                result.TrueLongitudeOfPerigee = 2 * Math.PI - Math.Acos(cosTrueLongitudeOfPerigee);
             }
             else
             {
-                result.TrueLongitudeOfPerigee = (decimal)Math.Acos((double)cosTrueLongitudeOfPerigee);
+                result.TrueLongitudeOfPerigee = Math.Acos(cosTrueLongitudeOfPerigee);
             }
 
             if (data.RadiusVector[2] < 0)
             {
-                result.ArgumentOfLatitude = 2m * (decimal)Math.PI - (decimal)Math.Acos((double)cosArgumentOfLatitude);
+                result.ArgumentOfLatitude = 2 * Math.PI - Math.Acos(cosArgumentOfLatitude);
             }
             else
             {
-                result.ArgumentOfLatitude = (decimal)Math.Acos((double)cosArgumentOfLatitude);
+                result.ArgumentOfLatitude = Math.Acos(cosArgumentOfLatitude);
             }
 
             if (data.RadiusVector[1] < 0)
             {
-                result.TrueLongitude = 2m * (decimal)Math.PI - (decimal)Math.Acos((double)cosTrueLongitude);
+                result.TrueLongitude = 2 * Math.PI - Math.Acos(cosTrueLongitude);
             }
             else
             {
-                result.TrueLongitude = (decimal)Math.Acos((double)cosTrueLongitude);
+                result.TrueLongitude = Math.Acos(cosTrueLongitude);
             }
 
             return result;

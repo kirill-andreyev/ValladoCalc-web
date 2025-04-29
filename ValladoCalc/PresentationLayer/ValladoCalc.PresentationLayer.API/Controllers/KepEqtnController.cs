@@ -9,25 +9,23 @@ namespace ValladoCalc.PresentationLayer.API.Controllers
 
     public class KepEqtnController : ControllerBase
     {
-        private readonly IKepEqtnEService _kepEqtnEService;
-        private readonly IKepEqtnPService _kepEqtnPService;
+        private readonly IKepEqtnService _kepEqtnService;
 
-        public KepEqtnController(IKepEqtnEService kepEqtnEService, IKepEqtnPService kepEqtnPService)
+        public KepEqtnController(IKepEqtnService kepEqtnService)
         {
-            _kepEqtnEService = kepEqtnEService;
-            _kepEqtnPService = kepEqtnPService;
+            _kepEqtnService = kepEqtnService;
         }
 
         [HttpPost]
         public async Task<IActionResult> EccentricAnomaly([FromBody] KepEqtnEModel data)
         {
-            return Ok(await _kepEqtnEService.CalculateEccenticAnomaly(data));
+            return Ok(await _kepEqtnService.CalculateEccenticAnomaly(data));
         }
 
         [HttpPost]
         public async Task<IActionResult> ParabolicAnomaly([FromBody] KepEqtnPModel data)
         {
-            return Ok(await _kepEqtnPService.CalculateParabolicAnomaly(data));
+            return Ok(await _kepEqtnService.CalculateParabolicAnomaly(data));
         }
     }
 }

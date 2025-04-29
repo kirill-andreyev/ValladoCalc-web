@@ -2,6 +2,6 @@
 {
     public class KepEqtnEResultModel
     {
-        public decimal EccentricAnomaly { get; set; }
+        public double EccentricAnomaly { get; set; }
     }
 }

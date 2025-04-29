@@ -4,14 +4,14 @@ namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
 {
     public class AngleService : IAngleService
     {
-        public async Task<decimal> ConvertToDegrees(decimal angle)
+        public async Task<double> ConvertToDegrees(double angle)
         {
-            return angle * 180m / (decimal)Math.PI;
+            return angle * 180 / Math.PI;
         }
 
-        public async Task<decimal> ConvertToRadians(decimal angle)
+        public async Task<double> ConvertToRadians(double angle)
         {
-            return angle * ((decimal)Math.PI / 180m);
+            return angle * (Math.PI / 180);
         }
     }
 }

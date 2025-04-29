@@ -11,9 +11,9 @@
             this.TimeDimension = other.TimeDimension;
         }
 
-        public decimal TimeDifference { get; set; }
-        public decimal SemiParameter { get; set; }
-        public decimal StandardGravitationalParameter { get; set; }
+        public double TimeDifference { get; set; }
+        public double SemiParameter { get; set; }
+        public double StandardGravitationalParameter { get; set; }
         public TimeDimension TimeDimension { get; set; }
 
     }

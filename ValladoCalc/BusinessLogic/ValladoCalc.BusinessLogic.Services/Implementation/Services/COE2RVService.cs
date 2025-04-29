@@ -25,34 +25,34 @@ namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
 
             result.RadiusVector =
             [
-                data.SemiParameter * (decimal)Math.Cos((double)data.TrueAnomaly) / (1 + data.Eccentricity * (decimal)Math.Cos((double)data.TrueAnomaly)),
-                data.SemiParameter * (decimal)Math.Sin((double)data.TrueAnomaly) / (1 + data.Eccentricity * (decimal)Math.Cos((double)data.TrueAnomaly)),
-                0m
+                data.SemiParameter * Math.Cos(data.TrueAnomaly) / (1 + data.Eccentricity * Math.Cos(data.TrueAnomaly)),
+                data.SemiParameter * Math.Sin(data.TrueAnomaly) / (1 + data.Eccentricity * Math.Cos(data.TrueAnomaly)),
+                0
             ];
 
             result.VelocityVector =
            [
-                - (decimal)Math.Sqrt((double)(data.StandardGravitationalParameter / data.SemiParameter)) * (decimal)Math.Sin((double)data.TrueAnomaly),
-                (decimal)Math.Sqrt((double)(data.StandardGravitationalParameter / data.SemiParameter)) * (data.Eccentricity + (decimal)Math.Cos((double)data.TrueAnomaly)),
+                - Math.Sqrt(data.StandardGravitationalParameter / data.SemiParameter) * Math.Sin(data.TrueAnomaly),
+                Math.Sqrt(data.StandardGravitationalParameter / data.SemiParameter) * (data.Eccentricity + Math.Cos(data.TrueAnomaly)),
                 0
            ];
 
-            decimal[,] transformationMatrix =
+            double[,] transformationMatrix =
             {
                 { 
-                    (decimal)Math.Cos((double)data.AscendingNode) * (decimal)Math.Cos((double)data.ArgumentOfPerigee) - (decimal)Math.Sin((double)data.AscendingNode) * (decimal)Math.Sin((double)data.ArgumentOfPerigee) * (decimal)Math.Cos((double)data.Inclination), 
-                    -(decimal)Math.Cos((double)data.AscendingNode) * (decimal)Math.Sin((double)data.ArgumentOfPerigee) - (decimal)Math.Sin((double)data.AscendingNode) * (decimal)Math.Cos((double)data.ArgumentOfPerigee) * (decimal)Math.Cos((double)data.Inclination),
-                    (decimal)Math.Sin((double)data.AscendingNode) * (decimal)Math.Sin((double)data.Inclination)
+                    Math.Cos(data.AscendingNode) * Math.Cos(data.ArgumentOfPerigee) - Math.Sin(data.AscendingNode) * Math.Sin(data.ArgumentOfPerigee) * Math.Cos(data.Inclination), 
+                    -Math.Cos(data.AscendingNode) * Math.Sin(data.ArgumentOfPerigee) - Math.Sin(data.AscendingNode) * Math.Cos(data.ArgumentOfPerigee) * Math.Cos(data.Inclination),
+                    Math.Sin(data.AscendingNode) * Math.Sin(data.Inclination)
                 },
                 {
-                    (decimal)Math.Sin((double)data.AscendingNode) * (decimal)Math.Cos((double)data.ArgumentOfPerigee) + (decimal)Math.Cos((double)data.AscendingNode)*(decimal)Math.Sin((double)data.ArgumentOfPerigee)*(decimal)Math.Cos((double)data.Inclination),
-                    -(decimal)Math.Sin((double)data.AscendingNode) * (decimal)Math.Sin((double)data.ArgumentOfPerigee) + (decimal)Math.Cos((double)data.AscendingNode) * (decimal)Math.Cos((double)data.ArgumentOfPerigee) * (decimal)Math.Cos((double)data.Inclination),
-                    -(decimal)Math.Cos((double)data.AscendingNode) * (decimal)Math.Sin((double)data.Inclination)
+                    Math.Sin(data.AscendingNode) * Math.Cos(data.ArgumentOfPerigee) + Math.Cos(data.AscendingNode)*Math.Sin(data.ArgumentOfPerigee)*Math.Cos(data.Inclination),
+                    -Math.Sin(data.AscendingNode) * Math.Sin(data.ArgumentOfPerigee) + Math.Cos(data.AscendingNode) * Math.Cos(data.ArgumentOfPerigee) * Math.Cos(data.Inclination),
+                    -Math.Cos(data.AscendingNode) * Math.Sin(data.Inclination)
                 },
                 {
-                    (decimal)Math.Sin((double)data.ArgumentOfPerigee)*(decimal)Math.Sin((double)data.Inclination),
-                    (decimal)Math.Cos((double)data.ArgumentOfPerigee) * (decimal)Math.Sin((double)data.Inclination),
-                    (decimal)Math.Cos((double)data.Inclination)
+                    Math.Sin(data.ArgumentOfPerigee)*Math.Sin(data.Inclination),
+                    Math.Cos(data.ArgumentOfPerigee) * Math.Sin(data.Inclination),
+                    Math.Cos(data.Inclination)
                 }
             };
 

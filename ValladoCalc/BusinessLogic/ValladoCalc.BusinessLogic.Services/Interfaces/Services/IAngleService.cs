@@ -2,7 +2,7 @@ namespace ValladoCalc.BusinessLogic.Services.Interfaces.Services
 {
     public interface IAngleService
     {
-        public Task<decimal> ConvertToRadians(decimal angle);
-        public Task<decimal> ConvertToDegrees(decimal angle);
+        public Task<double> ConvertToRadians(double angle);
+        public Task<double> ConvertToDegrees(double angle);
     }
 }

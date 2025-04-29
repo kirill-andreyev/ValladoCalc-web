@@ -10,11 +10,11 @@ namespace ValladoCalc.BusinessLogic.Models.ExportModels
     {
         public COE2RVResultModel()
         {
-            RadiusVector = new decimal[3];
-            VelocityVector = new decimal[3];
+            RadiusVector = new Double[3];
+            VelocityVector = new Double[3];
         }
 
-        public decimal[] RadiusVector { get; set; }
-        public decimal[] VelocityVector { get; set; }
+        public double[] RadiusVector { get; set; }
+        public double[] VelocityVector { get; set; }
     }
 }

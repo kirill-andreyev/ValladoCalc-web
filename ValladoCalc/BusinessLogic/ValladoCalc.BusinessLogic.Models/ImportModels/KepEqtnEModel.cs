@@ -11,9 +11,9 @@
             this.MeanAnomality = oldModel.MeanAnomality;
         }
 
-        public decimal MeanAnomality { get; set; }
-        public decimal Tolerance { get; set; }
-        public decimal Eccentricity { get; set; }
+        public double MeanAnomality { get; set; }
+        public double Tolerance { get; set; }
+        public double Eccentricity { get; set; }
         public AngleDimension AngleType { get; set; }
     }
 }

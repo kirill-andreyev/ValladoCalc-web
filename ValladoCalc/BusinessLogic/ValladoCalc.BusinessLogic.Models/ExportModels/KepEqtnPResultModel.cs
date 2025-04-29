@@ -2,6 +2,6 @@
 {
     public class KepEqtnPResultModel
     {
-        public decimal ParabolicAnomaly { get; set; }
+        public double ParabolicAnomaly { get; set; }
     }
 }

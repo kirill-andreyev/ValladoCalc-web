@@ -1,19 +1,17 @@
-﻿using System.Numerics;
-
-namespace ValladoCalc.BusinessLogic.Models.ImportModels
+﻿namespace ValladoCalc.BusinessLogic.Models.ImportModels
 {
     public class RV2COEModel
     {
         public RV2COEModel() 
         {
-            RadiusVector = new decimal[3];
-            VelocityVector = new decimal[3];
+            RadiusVector = new Double[3];
+            VelocityVector = new Double[3];
         }
 
         public RV2COEModel(RV2COEModel model)
         {
-            RadiusVector = new decimal[3];
-            VelocityVector = new decimal[3];
+            RadiusVector = new Double[3];
+            VelocityVector = new Double[3];
 
             for(int i = 0; i < 3; i++)
             {
@@ -27,8 +25,8 @@ namespace ValladoCalc.BusinessLogic.Models.ImportModels
             this.StandardGravitationalParameter = model.StandardGravitationalParameter;
         }
 
-        public decimal[] RadiusVector { get; set; }
-        public decimal[] VelocityVector { get; set; }
-        public decimal StandardGravitationalParameter { get; set; }
+        public double[] RadiusVector { get; set; }
+        public double[] VelocityVector { get; set; }
+        public double StandardGravitationalParameter { get; set; }
     }
 }

@@ -24,16 +24,16 @@ namespace ValladoCalc.BusinessLogic.Models.ImportModels
             this.StandardGravitationalParameter = model.StandardGravitationalParameter;
         }
 
-        public decimal SemiParameter { get; set; }
-        public decimal Eccentricity { get; set; }
-        public decimal Inclination { get; set; }
-        public decimal AscendingNode { get; set; }
-        public decimal ArgumentOfPerigee { get; set; }
-        public decimal TrueAnomaly { get; set; }
-        public decimal ArgumentOfLatitude { get; set; }
-        public decimal TrueLongitude { get; set; }
-        public decimal TrueLongitudeOfPerigee { get; set; }
-        public decimal StandardGravitationalParameter { get; set; }
+        public double SemiParameter { get; set; }
+        public double Eccentricity { get; set; }
+        public double Inclination { get; set; }
+        public double AscendingNode { get; set; }
+        public double ArgumentOfPerigee { get; set; }
+        public double TrueAnomaly { get; set; }
+        public double ArgumentOfLatitude { get; set; }
+        public double TrueLongitude { get; set; }
+        public double TrueLongitudeOfPerigee { get; set; }
+        public double StandardGravitationalParameter { get; set; }
 
     }
 }
