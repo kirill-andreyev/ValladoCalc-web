@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
-using ValladoCalc.BusinessLogic.Services.Implementations.Services;
+using ValladoCalc.BusinessLogic.Services.Implementation.Services;
 using ValladoCalc.BusinessLogic.Services.Interfaces.Services;
 
 namespace ValladoCalc.BusinessLogic.Services
@@ -15,6 +15,9 @@ namespace ValladoCalc.BusinessLogic.Services
             services.AddTransient<IKepEqtnService, KepEqtnService>();
             services.AddTransient<IRV2COEService, RV2COEService>();
             services.AddTransient<IDateTimeService, DateTimeService>();
+            services.AddTransient<IPsiToService, PsiToService>();
+            services.AddTransient<IAnomalyService, AnomalyService>();
+            services.AddTransient<IFindTOFService, FindTOFService>();
 
             return services;
         }

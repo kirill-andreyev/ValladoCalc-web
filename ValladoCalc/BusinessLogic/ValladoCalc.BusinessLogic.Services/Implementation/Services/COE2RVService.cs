@@ -2,12 +2,17 @@ using ValladoCalc.BusinessLogic.Models.ExportModels;
 using ValladoCalc.BusinessLogic.Models.ImportModels;
 using ValladoCalc.BusinessLogic.Services.Interfaces.Services;
 
-namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
+namespace ValladoCalc.BusinessLogic.Services.Implementation.Services
 {
     public class COE2RVService : ICOE2RVService
     {
         public async Task<COE2RVResultModel> CalculateVectors(COE2RVModel data)
         {
+            if (data.StandardGravitationalParameter == 0)
+            {
+                data.StandardGravitationalParameter = 398600.4418;
+            }
+            
             if(data.ArgumentOfPerigee == 0 && data.AscendingNode == 0)
             {
                 data.TrueAnomaly = data.TrueLongitude;

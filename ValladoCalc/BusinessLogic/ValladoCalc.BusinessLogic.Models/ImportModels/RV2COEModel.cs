@@ -1,4 +1,7 @@
-﻿namespace ValladoCalc.BusinessLogic.Models.ImportModels
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+
+namespace ValladoCalc.BusinessLogic.Models.ImportModels
 {
     public class RV2COEModel
     {
@@ -25,8 +28,15 @@
             this.StandardGravitationalParameter = model.StandardGravitationalParameter;
         }
 
+        [Required]
+        [JsonPropertyName("radiusVector")]
         public double[] RadiusVector { get; set; }
+        
+        [Required]
+        [JsonPropertyName("velocityVector")]
         public double[] VelocityVector { get; set; }
+
+        [JsonPropertyName("standardGravitationalParameter")]
         public double StandardGravitationalParameter { get; set; }
     }
 }

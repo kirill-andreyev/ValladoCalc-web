@@ -16,6 +16,7 @@ namespace ValladoCalc.PresentationLayer.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(double) ,StatusCodes.Status200OK)]
         public async Task<IActionResult> JulianDate([FromBody] DateTime date)
         {
             return Ok(await _dateTimeService.CalculateJulianDate(date));

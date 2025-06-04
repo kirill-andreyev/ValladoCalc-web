@@ -2,12 +2,17 @@ using ValladoCalc.BusinessLogic.Models.ExportModels;
 using ValladoCalc.BusinessLogic.Models.ImportModels;
 using ValladoCalc.BusinessLogic.Services.Interfaces.Services;
 
-namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
+namespace ValladoCalc.BusinessLogic.Services.Implementation.Services
 {
     public class RV2COEService : IRV2COEService
     {
         public async Task<RV2COEResultModel> CalculateOrbitalParameters(RV2COEModel data)
         {
+            if (data.StandardGravitationalParameter == 0)
+            {
+                data.StandardGravitationalParameter = 398600.4418;
+            }
+            
             double magnitudeOfRaduis = Math.Sqrt(data.RadiusVector[0] * data.RadiusVector[0] +
                                                  data.RadiusVector[1] * data.RadiusVector[1] +
                                                  data.RadiusVector[2] * data.RadiusVector[2]);
@@ -133,7 +138,7 @@ namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
                 result.TrueAnomaly = Math.Acos(cosTrueAnomaly);
             }
 
-            result.LongituteOfPerigee = result.AscendingNode + result.ArgumentOfPerigee;
+            result.LongitudeOfPerigee = result.AscendingNode + result.ArgumentOfPerigee;
 
             if (eccentricityVector[1] < 0)
             {

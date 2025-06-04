@@ -1,4 +1,7 @@
-﻿namespace ValladoCalc.BusinessLogic.Models.ImportModels
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+
+namespace ValladoCalc.BusinessLogic.Models.ImportModels
 {
     public class KepEqtnEModel
     {
@@ -11,9 +14,20 @@
             this.MeanAnomality = oldModel.MeanAnomality;
         }
 
+        
+        [Required]
+        [JsonPropertyName("meanAnomality")]
         public double MeanAnomality { get; set; }
+        
+        [JsonPropertyName("tolerance")]
         public double Tolerance { get; set; }
+        
+        [Required]
+        [JsonPropertyName("eccentricity")]
         public double Eccentricity { get; set; }
+        
+        [Required]
+        [JsonPropertyName("angleType")]
         public AngleDimension AngleType { get; set; }
     }
 }

@@ -7,5 +7,6 @@ namespace ValladoCalc.BusinessLogic.Services.Interfaces.Services
     {
         public Task<KepEqtnEResultModel> CalculateEccenticAnomaly(KepEqtnEModel data);
         public Task<KepEqtnPResultModel> CalculateParabolicAnomaly(KepEqtnPModel data);
+        public Task<KepEqtnHResultModel> CalculateHyperbolicAnomaly(KepEqtnHModel data);
     }
 }

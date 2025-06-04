@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PresentationLayer", "Presen
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{CA9E6B34-CBBA-47FF-BCF8-B01556AB7D4F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{EDD29AE5-7F09-4361-8B17-D6A9F47A8C8E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValladoCalc.BusinessLogic.Services", "BusinessLogic\ValladoCalc.BusinessLogic.Services\ValladoCalc.BusinessLogic.Services.csproj", "{2AF878C9-26D4-4B3A-A40A-B872D177EDFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValladoCalc.PresentationLayer.API", "PresentationLayer\ValladoCalc.PresentationLayer.API\ValladoCalc.PresentationLayer.API.csproj", "{753F8279-D351-4172-87B4-C01FC834369E}"

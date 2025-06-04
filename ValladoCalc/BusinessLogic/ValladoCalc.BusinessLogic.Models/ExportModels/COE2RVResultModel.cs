@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ValladoCalc.BusinessLogic.Models.ExportModels
@@ -14,7 +15,9 @@ namespace ValladoCalc.BusinessLogic.Models.ExportModels
             VelocityVector = new Double[3];
         }
 
+        [JsonPropertyName("radiusVector")]
         public double[] RadiusVector { get; set; }
+        [JsonPropertyName("velocityVector")]
         public double[] VelocityVector { get; set; }
     }
 }

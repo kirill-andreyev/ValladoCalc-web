@@ -1,6 +1,7 @@
 using ValladoCalc.BusinessLogic.Models.ImportModels;
 using ValladoCalc.BusinessLogic.Services.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
+using ValladoCalc.BusinessLogic.Models.ExportModels;
 
 namespace ValladoCalc.PresentationLayer.API.Controllers
 {
@@ -17,6 +18,7 @@ namespace ValladoCalc.PresentationLayer.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(RV2COEResultModel) ,StatusCodes.Status200OK)]
         public async Task<IActionResult> OrbitalParameters([FromBody] RV2COEModel data)
         {
             return Ok(await _RV2COEService.CalculateOrbitalParameters(data));

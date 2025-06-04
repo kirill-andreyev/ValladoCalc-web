@@ -1,6 +1,6 @@
 using ValladoCalc.BusinessLogic.Services.Interfaces.Services;
 
-namespace ValladoCalc.BusinessLogic.Services.Implementations.Services
+namespace ValladoCalc.BusinessLogic.Services.Implementation.Services
 {
     public class DateTimeService : IDateTimeService
     {

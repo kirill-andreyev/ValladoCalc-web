@@ -1,6 +1,7 @@
 using ValladoCalc.BusinessLogic.Models.ImportModels;
 using ValladoCalc.BusinessLogic.Services.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
+using ValladoCalc.BusinessLogic.Models.ExportModels;
 
 namespace ValladoCalc.PresentationLayer.API.Controllers
 {
@@ -17,6 +18,7 @@ namespace ValladoCalc.PresentationLayer.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(COE2RVResultModel) ,StatusCodes.Status200OK)]
         public async Task<IActionResult> Vectors([FromBody] COE2RVModel data)
         {
             return Ok(await _COE2RVService.CalculateVectors(data));
