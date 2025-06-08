@@ -21,7 +21,7 @@ namespace ValladoCalc.PresentationLayer.API.Controllers
         [ProducesResponseType(typeof(FindTOFResultModel), StatusCodes.Status200OK)]
         public async Task<IActionResult> TOF([FromBody] FindTOFModel model)
         {
-            return Ok(_findTOFService.FindTOF(model));
+            return Ok(await _findTOFService.FindTOF(model));
         }
     }
 }

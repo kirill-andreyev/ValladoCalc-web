@@ -21,7 +21,7 @@ namespace ValladoCalc.PresentationLayer.API.Controllers
         [ProducesResponseType(typeof(TrueAnomalyToAnomalyResultModel), StatusCodes.Status200OK)]
         public async Task<IActionResult> AnomalyFromTrueAnomaly([FromBody] TrueAnomalyToAnomalyModel data)
         {
-            return Ok(_anomalyService.TrueAnomalyToAnomaly(data));
+            return Ok(await _anomalyService.TrueAnomalyToAnomaly(data));
         }
 
         [HttpPost]
@@ -43,7 +43,7 @@ namespace ValladoCalc.PresentationLayer.API.Controllers
                 }
             }
             
-            return Ok(_anomalyService.AnomalyToTrueAnomaly(data));
+            return Ok(await _anomalyService.AnomalyToTrueAnomaly(data));
         }
     }
 }
